@@ -48,19 +48,27 @@ class MainActivity: AppCompatActivity(){
     "8" to listOf(necPattern(0x20DF, 0x18)),
     "9" to listOf(necPattern(0x20DF, 0x98))
   )
+  @Volatile private var bruteStop=false
   private fun brutePower(){
     val mgr = ir ?: return
     if(!mgr.hasIrEmitter()) return
-    // brute 256 cmd for addr 0x20DF — ponytail: full 256 scan, add address scan when none hit
     val log = findViewById<TextView>(R.id.tWarn)
+    bruteStop=false
+    // ponytail: 2D brute common Polytron addrs x cmd, full 256*addr heavy ~30k tx
+    val addrs = intArrayOf(0x20DF, 0x00FF, 0x807F, 0x40BF, 0x740B, 0x10EF, 0x48B7)
     Thread{
-      for(c in 0..255){
-        val pat = necPattern(0x20DF, c)
-        try{ mgr.transmit(38000, pat) }catch(_:Exception){}
-        runOnUiThread{ log.text = "brute 20DF 0x"+Integer.toHexString(c).padStart(2,'0')+" ("+c+"/255) — lihat TV"; log.visibility=android.view.View.VISIBLE }
-        Thread.sleep(700)
+      outer@ for(a in addrs){
+        for(c in 0..255){
+          if(bruteStop) break@outer
+          val pat = necPattern(a, c)
+          try{ mgr.transmit(38000, pat) }catch(_:Exception){}
+          val ah=Integer.toHexString(a).padStart(4,'0')
+          val ch=Integer.toHexString(c).padStart(2,'0')
+          runOnUiThread{ log.text = "brute "+ah+" 0x"+ch+" ("+c+") — Brute lagi=STOP / lihat TV"; log.visibility=android.view.View.VISIBLE }
+          Thread.sleep(600)
+        }
       }
-      runOnUiThread{ Toast.makeText(this,"brute selesai — catatan hex yg hidupin TV apa?",Toast.LENGTH_LONG).show() }
+      runOnUiThread{ Toast.makeText(this,"brute selesai — hex yg hidup apa?",Toast.LENGTH_LONG).show() }
     }.start()
   }
   private fun brutePowerQuick(){
@@ -87,7 +95,7 @@ class MainActivity: AppCompatActivity(){
     if(ir==null || ir?.hasIrEmitter()==false){ warn.visibility=android.view.View.VISIBLE; warn.text="⚠ IR tidak terdeteksi" }
     else if(freq!=null){ warn.visibility=android.view.View.VISIBLE; warn.text="IR ready ${freq[0].minFrequency/1000}-${freq[0].maxFrequency/1000}kHz — arahkan 20cm ke sensor TV, lepas case jika tebal" }
     fun btn(id:Int, key:String){ findViewById<MaterialButton>(id).setOnClickListener{ send(key) } }
-    btn(R.id.bPower,"power"); findViewById<MaterialButton>(R.id.bBrute).setOnClickListener{ brutePower() }; btn(R.id.bMute,"mute"); btn(R.id.bVolP,"volp"); btn(R.id.bVolM,"volm"); btn(R.id.bChP,"chp"); btn(R.id.bChM,"chm")
+    btn(R.id.bPower,"power"); findViewById<MaterialButton>(R.id.bBrute).setOnClickListener{ if(bruteStop) bruteStop=false; else if(findViewById<TextView>(R.id.tWarn).text.toString().startsWith("brute")){ bruteStop=true; Toast.makeText(this,"stop",Toast.LENGTH_SHORT).show() } else brutePower() }; btn(R.id.bMute,"mute"); btn(R.id.bVolP,"volp"); btn(R.id.bVolM,"volm"); btn(R.id.bChP,"chp"); btn(R.id.bChM,"chm")
     btn(R.id.bSource,"source"); btn(R.id.bMenu,"menu"); btn(R.id.bExit,"exit")
     btn(R.id.b0,"0"); btn(R.id.b1,"1"); btn(R.id.b2,"2"); btn(R.id.b3,"3"); btn(R.id.b4,"4"); btn(R.id.b5,"5"); btn(R.id.b6,"6"); btn(R.id.b7,"7"); btn(R.id.b8,"8"); btn(R.id.b9,"9")
     btn(R.id.bUp,"up"); btn(R.id.bDown,"down"); btn(R.id.bLeft,"left"); btn(R.id.bRight,"right"); btn(R.id.bOk,"ok")
