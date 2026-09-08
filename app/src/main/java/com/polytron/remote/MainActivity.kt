@@ -48,6 +48,22 @@ class MainActivity: AppCompatActivity(){
     "8" to listOf(necPattern(0x20DF, 0x18)),
     "9" to listOf(necPattern(0x20DF, 0x98))
   )
+  private fun brutePower(){
+    val mgr = ir ?: return
+    if(!mgr.hasIrEmitter()) return
+    val candidates = listOf(
+      0x20DF to 0x10, 0x20DF to 0x0C, 0x20DF to 0x08, 0x00FF to 0x10, 0x00FF to 0x0C,
+      0x807F to 0x10, 0x40BF to 0x10, 0x20DF to 0x18, 0x20DF to 0x1A, 0x20DF to 0x46,
+      0x20DF to 0x19, 0x20DF to 0x0A
+    )
+    Thread{
+      for((a,c) in candidates){
+        try{ mgr.transmit(38000, necPattern(a,c)) }catch(_:Exception){}
+        Thread.sleep(250)
+      }
+    }.start()
+    Toast.makeText(this,"brute 12 kode...",Toast.LENGTH_SHORT).show()
+  }
   private fun send(key:String){
     val mgr = ir
     if(mgr==null || !mgr.hasIrEmitter()){ Toast.makeText(this,"HP tidak ada IR blaster",Toast.LENGTH_SHORT).show(); return }
@@ -65,7 +81,7 @@ class MainActivity: AppCompatActivity(){
     if(ir==null || ir?.hasIrEmitter()==false){ warn.visibility=android.view.View.VISIBLE; warn.text="⚠ IR tidak terdeteksi" }
     else if(freq!=null){ warn.visibility=android.view.View.VISIBLE; warn.text="IR ready ${freq[0].minFrequency/1000}-${freq[0].maxFrequency/1000}kHz — arahkan 20cm ke sensor TV, lepas case jika tebal" }
     fun btn(id:Int, key:String){ findViewById<MaterialButton>(id).setOnClickListener{ send(key) } }
-    btn(R.id.bPower,"power"); btn(R.id.bMute,"mute"); btn(R.id.bVolP,"volp"); btn(R.id.bVolM,"volm"); btn(R.id.bChP,"chp"); btn(R.id.bChM,"chm")
+    btn(R.id.bPower,"power"); findViewById<MaterialButton>(R.id.bBrute).setOnClickListener{ brutePower() } btn(R.id.bMute,"mute"); btn(R.id.bVolP,"volp"); btn(R.id.bVolM,"volm"); btn(R.id.bChP,"chp"); btn(R.id.bChM,"chm")
     btn(R.id.bSource,"source"); btn(R.id.bMenu,"menu"); btn(R.id.bExit,"exit")
     btn(R.id.b0,"0"); btn(R.id.b1,"1"); btn(R.id.b2,"2"); btn(R.id.b3,"3"); btn(R.id.b4,"4"); btn(R.id.b5,"5"); btn(R.id.b6,"6"); btn(R.id.b7,"7"); btn(R.id.b8,"8"); btn(R.id.b9,"9")
     btn(R.id.bUp,"up"); btn(R.id.bDown,"down"); btn(R.id.bLeft,"left"); btn(R.id.bRight,"right"); btn(R.id.bOk,"ok")
