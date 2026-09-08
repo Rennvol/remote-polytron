@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:background="#0E0E12"
+    android:padding="12dp"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <TextView android:text="Remote Polytron — Redmi Note 7" android:textColor="#E6F5EE" android:textSize="14sp" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    <TextView android:id="@+id/tWarn" android:visibility="gone" android:textColor="#FF6B6B" android:textSize="11sp" android:layout_marginTop="4dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    <com.google.android.material.card.MaterialCardView app:cardCornerRadius="12dp" app:strokeColor="#2A2A32" app:strokeWidth="1dp" app:cardBackgroundColor="#1C1C22" android:layout_marginTop="10dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:padding="12dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <com.google.android.material.button.MaterialButton android:id="@+id/bPower" android:text="⏻ Power" app:cornerRadius="10dp" android:textColor="#FFFFFF" app:iconTint="#FFFFFF" android:backgroundTint="#E11D2A" android:layout_weight="1" android:layout_width="0dp" android:layout_height="56dp"/>
+                <com.google.android.material.button.MaterialButton android:id="@+id/bMute" android:text="Mute" style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#2A2A32" android:textColor="#E6F5EE" android:layout_marginStart="8dp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="56dp"/>
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_marginTop="8dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <com.google.android.material.button.MaterialButton android:id="@+id/bVolM" android:text="Vol −" style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#2A2A32" android:textColor="#E6F5EE" android:layout_weight="1" android:layout_width="0dp" android:layout_height="48dp"/>
+                <com.google.android.material.button.MaterialButton android:id="@+id/bVolP" android:text="Vol +" style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#2A2A32" android:textColor="#E6F5EE" android:layout_marginStart="8dp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="48dp"/>
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_marginTop="8dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <com.google.android.material.button.MaterialButton android:id="@+id/bChM" android:text="Ch −" style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#2A2A32" android:textColor="#E6F5EE" android:layout_weight="1" android:layout_width="0dp" android:layout_height="48dp"/>
+                <com.google.android.material.button.MaterialButton android:id="@+id/bChP" android:text="Ch +" style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#2A2A32" android:textColor="#E6F5EE" android:layout_marginStart="8dp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="48dp"/>
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_marginTop="8dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <com.google.android.material.button.MaterialButton android:id="@+id/bSource" android:text="Source" style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#2A2A32" android:textColor="#7AA898" android:textSize="11sp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="44dp"/>
+                <com.google.android.material.button.MaterialButton android:id="@+id/bMenu" android:text="Menu" style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#2A2A32" android:textColor="#7AA898" android:textSize="11sp" android:layout_marginStart="6dp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="44dp"/>
+                <com.google.android.material.button.MaterialButton android:id="@+id/bExit" android:text="Exit" style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#2A2A32" android:textColor="#7AA898" android:textSize="11sp" android:layout_marginStart="6dp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="44dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView android:text="Angka &amp; Navigasi" android:textColor="#7AA898" android:textSize="11sp" android:layout_marginTop="12dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    <com.google.android.material.card.MaterialCardView app:cardCornerRadius="12dp" app:strokeColor="#2A2A32" app:strokeWidth="1dp" app:cardBackgroundColor="#1C1C22" android:layout_marginTop="6dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:padding="10dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <com.google.android.material.button.MaterialButton android:id="@+id/b1" android:text="1" style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#2A2A32" android:textColor="#E6F5EE" android:layout_weight="1" android:layout_width="0dp" android:layout_height="44dp"/>
+                <com.google.android.material.button.MaterialButton android:id="@+id/b2" android:text="2" style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#2A2A32" android:textColor="#E6F5EE" android:layout_marginStart="6dp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="44dp"/>
+                <com.google.android.material.button.MaterialButton android:id="@+id/b3" android:text="3" style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#2A2A32" android:textColor="#E6F5EE" android:layout_marginStart="6dp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="44dp"/>
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_marginTop="6dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <com.google.android.material.button.MaterialButton android:id="@+id/b4" android:text="4" style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#2A2A32" android:textColor="#E6F5EE" android:layout_weight="1" android:layout_width="0dp" android:layout_height="44dp"/>
+                <com.google.android.material.button.MaterialButton android:id="@+id/b5" android:text="5" style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#2A2A32" android:textColor="#E6F5EE" android:layout_marginStart="6dp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="44dp"/>
+                <com.google.android.material.button.MaterialButton android:id="@+id/b6" android:text="6" style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#2A2A32" android:textColor="#E6F5EE" android:layout_marginStart="6dp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="44dp"/>
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_marginTop="6dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <com.google.android.material.button.MaterialButton android:id="@+id/b7" android:text="7" style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#2A2A32" android:textColor="#E6F5EE" android:layout_weight="1" android:layout_width="0dp" android:layout_height="44dp"/>
+                <com.google.android.material.button.MaterialButton android:id="@+id/b8" android:text="8" style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#2A2A32" android:textColor="#E6F5EE" android:layout_marginStart="6dp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="44dp"/>
+                <com.google.android.material.button.MaterialButton android:id="@+id/b9" android:text="9" style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#2A2A32" android:textColor="#E6F5EE" android:layout_marginStart="6dp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="44dp"/>
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_marginTop="6dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <com.google.android.material.button.MaterialButton android:id="@+id/b0" android:text="0" style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#2A2A32" android:textColor="#E6F5EE" android:layout_weight="1" android:layout_width="0dp" android:layout_height="44dp"/>
+                <com.google.android.material.button.MaterialButton android:id="@+id/bUp" android:text="▲" style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#2A2A32" android:textColor="#5EE9A8" android:layout_marginStart="6dp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="44dp"/>
+                <com.google.android.material.button.MaterialButton android:id="@+id/bDown" android:text="▼" style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#2A2A32" android:textColor="#5EE9A8" android:layout_marginStart="6dp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="44dp"/>
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_marginTop="6dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <com.google.android.material.button.MaterialButton android:id="@+id/bLeft" android:text="◀" style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#2A2A32" android:textColor="#5EE9A8" android:layout_weight="1" android:layout_width="0dp" android:layout_height="44dp"/>
+                <com.google.android.material.button.MaterialButton android:id="@+id/bOk" android:text="OK" android:textColor="#0E0E12" app:cornerRadius="10dp" android:backgroundTint="#5EE9A8" android:layout_marginStart="6dp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="44dp"/>
+                <com.google.android.material.button.MaterialButton android:id="@+id/bRight" android:text="▶" style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#2A2A32" android:textColor="#5EE9A8" android:layout_marginStart="6dp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="44dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+    <TextView android:text="IR 38kHz · NEC · Polytron 0x20DF · jika tidak respon coba dekat 30cm" android:textColor="#3A3A44" android:textSize="10sp" android:layout_marginTop="10dp" android:gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+</LinearLayout>
