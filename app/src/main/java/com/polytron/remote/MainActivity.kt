@@ -51,18 +51,24 @@ class MainActivity: AppCompatActivity(){
   private fun brutePower(){
     val mgr = ir ?: return
     if(!mgr.hasIrEmitter()) return
-    val candidates = listOf(
-      0x20DF to 0x10, 0x20DF to 0x0C, 0x20DF to 0x08, 0x00FF to 0x10, 0x00FF to 0x0C,
-      0x807F to 0x10, 0x40BF to 0x10, 0x20DF to 0x18, 0x20DF to 0x1A, 0x20DF to 0x46,
-      0x20DF to 0x19, 0x20DF to 0x0A
-    )
+    // brute 256 cmd for addr 0x20DF — ponytail: full 256 scan, add address scan when none hit
+    val log = findViewById<TextView>(R.id.tWarn)
     Thread{
-      for((a,c) in candidates){
-        try{ mgr.transmit(38000, necPattern(a,c)) }catch(_:Exception){}
-        Thread.sleep(250)
+      for(c in 0..255){
+        val pat = necPattern(0x20DF, c)
+        try{ mgr.transmit(38000, pat) }catch(_:Exception){}
+        runOnUiThread{ log.text = "brute 20DF 0x"+Integer.toHexString(c).padStart(2,'0')+" ("+c+"/255) — lihat TV"; log.visibility=android.view.View.VISIBLE }
+        Thread.sleep(700)
       }
+      runOnUiThread{ Toast.makeText(this,"brute selesai — catatan hex yg hidupin TV apa?",Toast.LENGTH_LONG).show() }
     }.start()
-    Toast.makeText(this,"brute 12 kode...",Toast.LENGTH_SHORT).show()
+  }
+  private fun brutePowerQuick(){
+    val mgr = ir ?: return
+    if(!mgr.hasIrEmitter()) return
+    val q = listOf(0x20DF to 0x10, 0x00FF to 0x10, 0x20DF to 0x0C, 0x807F to 0x10, 0x40BF to 0x10)
+    Thread{ for((a,c) in q){ try{ mgr.transmit(38000, necPattern(a,c)) }catch(_:Exception){}; Thread.sleep(400) } }.start()
+    Toast.makeText(this,"quick 5",Toast.LENGTH_SHORT).show()
   }
   private fun send(key:String){
     val mgr = ir
