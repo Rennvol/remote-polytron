@@ -10,7 +10,6 @@
         <LinearLayout android:orientation="vertical" android:padding="12dp" android:layout_width="match_parent" android:layout_height="wrap_content">
             <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
                 <com.google.android.material.button.MaterialButton android:id="@+id/bPower" android:text="⏻ Power" app:cornerRadius="10dp" android:textColor="#FFFFFF" app:iconTint="#FFFFFF" android:backgroundTint="#E11D2A" android:layout_weight="1" android:layout_width="0dp" android:layout_height="56dp"/>
-                <com.google.android.material.button.MaterialButton android:id="@+id/bBrute" android:text="Brute" style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#E11D2A" android:textColor="#E11D2A" android:textSize="10sp" android:layout_marginStart="6dp" android:layout_width="52dp" android:layout_height="56dp"/>
                 <com.google.android.material.button.MaterialButton android:id="@+id/bMute" android:text="Mute" style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#2A2A32" android:textColor="#E6F5EE" android:layout_marginStart="8dp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="56dp"/>
             </LinearLayout>
             <LinearLayout android:orientation="horizontal" android:layout_marginTop="8dp" android:layout_width="match_parent" android:layout_height="wrap_content">
