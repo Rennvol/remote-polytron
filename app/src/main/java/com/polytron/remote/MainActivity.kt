@@ -44,7 +44,7 @@ class MainActivity: AppCompatActivity(){
     "down" to listOf(necPattern(0x80, 0x0D)),
     "left" to listOf(necPattern(0x80, 0x0E)),
     "right" to listOf(necPattern(0x80, 0x0F)),
-    "ok" to listOf(necPattern(0x80, 0x15))
+    "ok" to listOf(necPattern(0x80, 0x14))
   )
   @Volatile private var bruteStop=false
   private fun brutePower(){
