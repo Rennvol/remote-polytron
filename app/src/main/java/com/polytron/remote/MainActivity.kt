@@ -18,35 +18,32 @@ class MainActivity: AppCompatActivity(){
     out.add(560)
     return out.toIntArray()
   }
-  // PLD 32T7511/S — primary 0x20DF, fallback 0x00FF — ponytail: hardcoded, add learn when differs
+  // PLD 32T7511/S sniff HX1838 2026-09-11 addr 0x80 NEC — Zaza 81F579 — ponytail: map dari dump, koreksi jika tombol meleset
   private val codes = mapOf(
-    "power" to listOf(necPattern(0x20DF, 0x10), necPattern(0x00FF, 0x10), necPattern(0x20DF, 0x0C)),
-    "power_a" to listOf(necPattern(0x20DF, 0x10)),
-    "power_b" to listOf(necPattern(0x00FF, 0x10)),
-    "power_c" to listOf(necPattern(0x20DF, 0x0C)),
-    "mute" to listOf(necPattern(0x20DF, 0x90)),
-    "volp" to listOf(necPattern(0x20DF, 0x40)),
-    "volm" to listOf(necPattern(0x20DF, 0xC0)),
-    "chp" to listOf(necPattern(0x20DF, 0x00)),
-    "chm" to listOf(necPattern(0x20DF, 0x80)),
-    "source" to listOf(necPattern(0x20DF, 0xD0)),
-    "menu" to listOf(necPattern(0x20DF, 0x58)),
-    "exit" to listOf(necPattern(0x20DF, 0x5A)),
-    "up" to listOf(necPattern(0x20DF, 0x02)),
-    "down" to listOf(necPattern(0x20DF, 0x03)),
-    "left" to listOf(necPattern(0x20DF, 0x06)),
-    "right" to listOf(necPattern(0x20DF, 0x07)),
-    "ok" to listOf(necPattern(0x20DF, 0x0A)),
-    "0" to listOf(necPattern(0x20DF, 0x08)),
-    "1" to listOf(necPattern(0x20DF, 0x88)),
-    "2" to listOf(necPattern(0x20DF, 0x48)),
-    "3" to listOf(necPattern(0x20DF, 0xC8)),
-    "4" to listOf(necPattern(0x20DF, 0x28)),
-    "5" to listOf(necPattern(0x20DF, 0xA8)),
-    "6" to listOf(necPattern(0x20DF, 0x68)),
-    "7" to listOf(necPattern(0x20DF, 0xE8)),
-    "8" to listOf(necPattern(0x20DF, 0x18)),
-    "9" to listOf(necPattern(0x20DF, 0x98))
+    "power" to listOf(necPattern(0x80, 0x17)),
+    "mute" to listOf(necPattern(0x80, 0x5C)),
+    "1" to listOf(necPattern(0x80, 0x01)),
+    "2" to listOf(necPattern(0x80, 0x02)),
+    "3" to listOf(necPattern(0x80, 0x03)),
+    "4" to listOf(necPattern(0x80, 0x04)),
+    "5" to listOf(necPattern(0x80, 0x05)),
+    "6" to listOf(necPattern(0x80, 0x06)),
+    "7" to listOf(necPattern(0x80, 0x07)),
+    "8" to listOf(necPattern(0x80, 0x08)),
+    "9" to listOf(necPattern(0x80, 0x09)),
+    "0" to listOf(necPattern(0x80, 0x00)),
+    "volp" to listOf(necPattern(0x80, 0x50)),
+    "volm" to listOf(necPattern(0x80, 0x51)),
+    "chp" to listOf(necPattern(0x80, 0x12)),
+    "chm" to listOf(necPattern(0x80, 0x18)),
+    "source" to listOf(necPattern(0x80, 0x14)),
+    "menu" to listOf(necPattern(0x80, 0x0B)),
+    "exit" to listOf(necPattern(0x80, 0x4B)),
+    "up" to listOf(necPattern(0x80, 0x12)),
+    "down" to listOf(necPattern(0x80, 0x18)),
+    "left" to listOf(necPattern(0x80, 0x14)),
+    "right" to listOf(necPattern(0x80, 0x0B)),
+    "ok" to listOf(necPattern(0x80, 0x4B))
   )
   @Volatile private var bruteStop=false
   private fun brutePower(){
@@ -84,7 +81,7 @@ class MainActivity: AppCompatActivity(){
     val pats = codes[key] ?: return
     try{
       for(pat in pats){ mgr.transmit(38000, pat); if(pats.size>1) Thread.sleep(120) }
-      Toast.makeText(this,if(key=="power") "power x${pats.size} (20DF/00FF)" else key, Toast.LENGTH_SHORT).show()
+      Toast.makeText(this,if(key=="power") "power 0x80/0x17" else key, Toast.LENGTH_SHORT).show()
     }catch(e:Exception){ Toast.makeText(this,e.message,Toast.LENGTH_SHORT).show() }
   }
   override fun onCreate(b:Bundle?){
