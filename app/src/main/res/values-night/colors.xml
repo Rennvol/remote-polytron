@@ -1,0 +1,10 @@
+<resources>
+  <color name="paper">#0A0A0F</color>
+  <color name="bg">#0A0A0F</color>
+  <color name="card">#141620</color>
+  <color name="stroke">#262A3D</color>
+  <color name="accent">#E11D2A</color>
+  <color name="text">#E8EAF0</color>
+  <color name="text_dim">#9AA0B5</color>
+  <color name="mint">#5EE9A8</color>
+</resources>

@@ -1,0 +1,6 @@
+<resources>
+  <style name="Theme.Remote" parent="Theme.Material3.DayNight.NoActionBar">
+    <item name="colorPrimary">#E11D2A</item>
+    <item name="android:statusBarColor">#0A0A0F</item>
+  </style>
+</resources>

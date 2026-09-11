@@ -1,1 +1,11 @@
-<resources><style name="Theme.Remote" parent="Theme.Material3.DayNight.NoActionBar"><item name="colorPrimary">#E11D2A</item></style></resources>
+<resources>
+  <style name="Theme.Remote" parent="Theme.Material3.Light.NoActionBar">
+    <item name="colorPrimary">#E11D2A</item>
+    <item name="android:statusBarColor">@color/paper</item>
+    <item name="android:windowBackground">@drawable/bg_light</item>
+  </style>
+  <style name="Theme.Remote.Dark" parent="Theme.Material3.DayNight.NoActionBar">
+    <item name="colorPrimary">#E11D2A</item>
+    <item name="android:statusBarColor">#0A0A0F</item>
+  </style>
+</resources>

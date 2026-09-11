@@ -2,19 +2,19 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="@drawable/bg_glass">
+    android:background="@color/paper">
 <LinearLayout android:orientation="vertical" android:padding="16dp"
     android:layout_width="match_parent" android:layout_height="wrap_content">
 
     <!-- header minimal -->
     <LinearLayout android:orientation="horizontal" android:gravity="center_vertical"
         android:layout_width="match_parent" android:layout_height="wrap_content">
-        <TextView android:text="POLYTRON" android:textColor="#E8EAF0" android:textSize="13sp"
+        <TextView android:text="POLYTRON" android:textColor="@color/text" android:textSize="13sp"
             android:letterSpacing="0.12" android:textStyle="bold"
             android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"/>
         <View android:background="#5EE9A8" android:layout_width="6dp" android:layout_height="6dp"
             android:layout_marginEnd="6dp" android:backgroundTint="#5EE9A8"/>
-        <TextView android:text="PLD 32T7511" android:textColor="#6B7280" android:textSize="10sp"
+        <TextView android:text="PLD 32T7511" android:textColor="@color/text_dim" android:textSize="10sp"
             android:layout_width="wrap_content" android:layout_height="wrap_content"/>
     </LinearLayout>
 
@@ -24,8 +24,8 @@
 
     <!-- glass card 1 : power + vol/ch/source -->
     <com.google.android.material.card.MaterialCardView
-        app:cardCornerRadius="20dp" app:strokeColor="#262A3D" app:strokeWidth="1dp"
-        app:cardBackgroundColor="#141620" app:cardElevation="0dp"
+        app:cardCornerRadius="20dp" app:strokeColor="@color/stroke" app:strokeWidth="1dp"
+        app:cardBackgroundColor="@color/card" app:cardElevation="0dp"
         android:layout_marginTop="14dp" android:layout_width="match_parent" android:layout_height="wrap_content">
         <LinearLayout android:orientation="vertical" android:padding="16dp"
             android:layout_width="match_parent" android:layout_height="wrap_content">
@@ -33,38 +33,38 @@
             <LinearLayout android:orientation="horizontal" android:gravity="center_vertical"
                 android:layout_width="match_parent" android:layout_height="wrap_content">
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/bPower" android:text="⏻" android:textSize="22sp"
+                    android:id="@+id/bPower" android:text="" app:icon="@drawable/ic_power" app:iconSize="26dp" app:iconPadding="0dp"
                     app:cornerRadius="16dp" android:textColor="#FFFFFF"
                     android:backgroundTint="#E11D2A" android:insetTop="0dp" android:insetBottom="0dp"
                     android:layout_width="64dp" android:layout_height="64dp"/>
                 <LinearLayout android:orientation="vertical" android:layout_marginStart="12dp"
                     android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content">
-                    <TextView android:text="Power" android:textColor="#E8EAF0" android:textSize="12sp" android:textStyle="bold"
+                    <TextView android:text="Power" android:textColor="@color/text" android:textSize="12sp" android:textStyle="bold"
                         android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                    <TextView android:text="0x80 · 0x17" android:textColor="#6B7280" android:textSize="10sp"
+                    <TextView android:text="0x80 · 0x17" android:textColor="@color/text_dim" android:textSize="10sp"
                         android:layout_width="wrap_content" android:layout_height="wrap_content"/>
                 </LinearLayout>
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/bMute" android:text="Mute" app:cornerRadius="12dp"
                     style="@style/Widget.Material3.Button.OutlinedButton"
-                    app:strokeColor="#262A3D" android:textColor="#E8EAF0"
+                    app:strokeColor="@color/stroke" android:textColor="@color/text"
                     android:layout_width="72dp" android:layout_height="42dp"/>
             </LinearLayout>
 
-            <View android:background="#1E2235" android:layout_marginTop="14dp"
+            <View android:background="@color/stroke" android:layout_marginTop="14dp"
                 android:layout_width="match_parent" android:layout_height="1dp"/>
 
             <LinearLayout android:orientation="horizontal" android:layout_marginTop="12dp"
                 android:layout_width="match_parent" android:layout_height="wrap_content">
                 <com.google.android.material.button.MaterialButton android:id="@+id/bVolM" android:text="−"
                     android:textSize="18sp" style="@style/Widget.Material3.Button.OutlinedButton"
-                    app:strokeColor="#262A3D" android:textColor="#E8EAF0" app:cornerRadius="12dp"
+                    app:strokeColor="@color/stroke" android:textColor="@color/text" app:cornerRadius="12dp"
                     android:layout_weight="1" android:layout_width="0dp" android:layout_height="48dp"/>
-                <TextView android:text="VOL" android:textColor="#6B7280" android:textSize="10sp" android:letterSpacing="0.08"
+                <TextView android:text="VOL" android:textColor="@color/text_dim" android:textSize="10sp" android:letterSpacing="0.08"
                     android:gravity="center" android:layout_width="44dp" android:layout_height="48dp"/>
                 <com.google.android.material.button.MaterialButton android:id="@+id/bVolP" android:text="+"
                     android:textSize="18sp" style="@style/Widget.Material3.Button.OutlinedButton"
-                    app:strokeColor="#262A3D" android:textColor="#E8EAF0" app:cornerRadius="12dp"
+                    app:strokeColor="@color/stroke" android:textColor="@color/text" app:cornerRadius="12dp"
                     android:layout_weight="1" android:layout_width="0dp" android:layout_height="48dp"/>
             </LinearLayout>
 
@@ -72,13 +72,13 @@
                 android:layout_width="match_parent" android:layout_height="wrap_content">
                 <com.google.android.material.button.MaterialButton android:id="@+id/bChM" android:text="CH −"
                     style="@style/Widget.Material3.Button.OutlinedButton"
-                    app:strokeColor="#262A3D" android:textColor="#E8EAF0" app:cornerRadius="12dp"
+                    app:strokeColor="@color/stroke" android:textColor="@color/text" app:cornerRadius="12dp"
                     android:layout_weight="1" android:layout_width="0dp" android:layout_height="48dp"/>
-                <TextView android:text="CH" android:textColor="#6B7280" android:textSize="10sp" android:letterSpacing="0.08"
+                <TextView android:text="CH" android:textColor="@color/text_dim" android:textSize="10sp" android:letterSpacing="0.08"
                     android:gravity="center" android:layout_width="44dp" android:layout_height="48dp"/>
                 <com.google.android.material.button.MaterialButton android:id="@+id/bChP" android:text="CH +"
                     style="@style/Widget.Material3.Button.OutlinedButton"
-                    app:strokeColor="#262A3D" android:textColor="#E8EAF0" app:cornerRadius="12dp"
+                    app:strokeColor="@color/stroke" android:textColor="@color/text" app:cornerRadius="12dp"
                     android:layout_weight="1" android:layout_width="0dp" android:layout_height="48dp"/>
             </LinearLayout>
 
@@ -86,15 +86,15 @@
                 android:layout_width="match_parent" android:layout_height="wrap_content">
                 <com.google.android.material.button.MaterialButton android:id="@+id/bSource" android:text="Source"
                     style="@style/Widget.Material3.Button.OutlinedButton" android:textSize="11sp"
-                    app:strokeColor="#262A3D" android:textColor="#9AA0B5" app:cornerRadius="10dp"
+                    app:strokeColor="@color/stroke" android:textColor="@color/text_dim" app:cornerRadius="10dp"
                     android:layout_weight="1" android:layout_width="0dp" android:layout_height="40dp"/>
                 <com.google.android.material.button.MaterialButton android:id="@+id/bMenu" android:text="Menu"
                     style="@style/Widget.Material3.Button.OutlinedButton" android:textSize="11sp"
-                    app:strokeColor="#262A3D" android:textColor="#9AA0B5" app:cornerRadius="10dp"
+                    app:strokeColor="@color/stroke" android:textColor="@color/text_dim" app:cornerRadius="10dp"
                     android:layout_marginStart="6dp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="40dp"/>
                 <com.google.android.material.button.MaterialButton android:id="@+id/bExit" android:text="Exit"
                     style="@style/Widget.Material3.Button.OutlinedButton" android:textSize="11sp"
-                    app:strokeColor="#262A3D" android:textColor="#9AA0B5" app:cornerRadius="10dp"
+                    app:strokeColor="@color/stroke" android:textColor="@color/text_dim" app:cornerRadius="10dp"
                     android:layout_marginStart="6dp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="40dp"/>
             </LinearLayout>
         </LinearLayout>
@@ -102,66 +102,66 @@
 
     <!-- glass card 2 : angka + dpad -->
     <com.google.android.material.card.MaterialCardView
-        app:cardCornerRadius="20dp" app:strokeColor="#262A3D" app:strokeWidth="1dp"
-        app:cardBackgroundColor="#141620" app:cardElevation="0dp"
+        app:cardCornerRadius="20dp" app:strokeColor="@color/stroke" app:strokeWidth="1dp"
+        app:cardBackgroundColor="@color/card" app:cardElevation="0dp"
         android:layout_marginTop="12dp" android:layout_width="match_parent" android:layout_height="wrap_content">
         <LinearLayout android:orientation="vertical" android:padding="14dp"
             android:layout_width="match_parent" android:layout_height="wrap_content">
 
             <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
                 <com.google.android.material.button.MaterialButton android:id="@+id/b1" android:text="1"
-                    style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#262A3D" android:textColor="#E8EAF0" app:cornerRadius="12dp"
+                    style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="@color/stroke" android:textColor="@color/text" app:cornerRadius="12dp"
                     android:layout_weight="1" android:layout_width="0dp" android:layout_height="46dp"/>
                 <com.google.android.material.button.MaterialButton android:id="@+id/b2" android:text="2"
-                    style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#262A3D" android:textColor="#E8EAF0" app:cornerRadius="12dp"
+                    style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="@color/stroke" android:textColor="@color/text" app:cornerRadius="12dp"
                     android:layout_marginStart="8dp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="46dp"/>
                 <com.google.android.material.button.MaterialButton android:id="@+id/b3" android:text="3"
-                    style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#262A3D" android:textColor="#E8EAF0" app:cornerRadius="12dp"
+                    style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="@color/stroke" android:textColor="@color/text" app:cornerRadius="12dp"
                     android:layout_marginStart="8dp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="46dp"/>
             </LinearLayout>
             <LinearLayout android:orientation="horizontal" android:layout_marginTop="8dp" android:layout_width="match_parent" android:layout_height="wrap_content">
                 <com.google.android.material.button.MaterialButton android:id="@+id/b4" android:text="4"
-                    style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#262A3D" android:textColor="#E8EAF0" app:cornerRadius="12dp"
+                    style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="@color/stroke" android:textColor="@color/text" app:cornerRadius="12dp"
                     android:layout_weight="1" android:layout_width="0dp" android:layout_height="46dp"/>
                 <com.google.android.material.button.MaterialButton android:id="@+id/b5" android:text="5"
-                    style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#262A3D" android:textColor="#E8EAF0" app:cornerRadius="12dp"
+                    style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="@color/stroke" android:textColor="@color/text" app:cornerRadius="12dp"
                     android:layout_marginStart="8dp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="46dp"/>
                 <com.google.android.material.button.MaterialButton android:id="@+id/b6" android:text="6"
-                    style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#262A3D" android:textColor="#E8EAF0" app:cornerRadius="12dp"
+                    style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="@color/stroke" android:textColor="@color/text" app:cornerRadius="12dp"
                     android:layout_marginStart="8dp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="46dp"/>
             </LinearLayout>
             <LinearLayout android:orientation="horizontal" android:layout_marginTop="8dp" android:layout_width="match_parent" android:layout_height="wrap_content">
                 <com.google.android.material.button.MaterialButton android:id="@+id/b7" android:text="7"
-                    style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#262A3D" android:textColor="#E8EAF0" app:cornerRadius="12dp"
+                    style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="@color/stroke" android:textColor="@color/text" app:cornerRadius="12dp"
                     android:layout_weight="1" android:layout_width="0dp" android:layout_height="46dp"/>
                 <com.google.android.material.button.MaterialButton android:id="@+id/b8" android:text="8"
-                    style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#262A3D" android:textColor="#E8EAF0" app:cornerRadius="12dp"
+                    style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="@color/stroke" android:textColor="@color/text" app:cornerRadius="12dp"
                     android:layout_marginStart="8dp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="46dp"/>
                 <com.google.android.material.button.MaterialButton android:id="@+id/b9" android:text="9"
-                    style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#262A3D" android:textColor="#E8EAF0" app:cornerRadius="12dp"
+                    style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="@color/stroke" android:textColor="@color/text" app:cornerRadius="12dp"
                     android:layout_marginStart="8dp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="46dp"/>
             </LinearLayout>
             <LinearLayout android:orientation="horizontal" android:layout_marginTop="8dp" android:layout_width="match_parent" android:layout_height="wrap_content">
                 <com.google.android.material.button.MaterialButton android:id="@+id/b0" android:text="0"
-                    style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#262A3D" android:textColor="#E8EAF0" app:cornerRadius="12dp"
+                    style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="@color/stroke" android:textColor="@color/text" app:cornerRadius="12dp"
                     android:layout_weight="1" android:layout_width="0dp" android:layout_height="46dp"/>
                 <View android:layout_weight="1" android:layout_marginStart="8dp" android:layout_width="0dp" android:layout_height="46dp"/>
                 <View android:layout_weight="1" android:layout_marginStart="8dp" android:layout_width="0dp" android:layout_height="46dp"/>
             </LinearLayout>
 
-            <View android:background="#1E2235" android:layout_marginTop="14dp" android:layout_width="match_parent" android:layout_height="1dp"/>
+            <View android:background="@color/stroke" android:layout_marginTop="14dp" android:layout_width="match_parent" android:layout_height="1dp"/>
 
             <!-- dpad glass -->
             <LinearLayout android:orientation="horizontal" android:gravity="center" android:layout_marginTop="14dp"
                 android:layout_width="match_parent" android:layout_height="wrap_content">
                 <com.google.android.material.button.MaterialButton android:id="@+id/bUp" android:text="▲"
-                    style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#262A3D" android:textColor="#5EE9A8"
+                    style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="@color/stroke" android:textColor="#5EE9A8"
                     app:cornerRadius="12dp" android:layout_width="64dp" android:layout_height="48dp"/>
             </LinearLayout>
             <LinearLayout android:orientation="horizontal" android:gravity="center" android:layout_marginTop="8dp"
                 android:layout_width="match_parent" android:layout_height="wrap_content">
                 <com.google.android.material.button.MaterialButton android:id="@+id/bLeft" android:text="◀"
-                    style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#262A3D" android:textColor="#5EE9A8"
+                    style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="@color/stroke" android:textColor="#5EE9A8"
                     app:cornerRadius="12dp" android:layout_width="64dp" android:layout_height="48dp"/>
                 <com.google.android.material.button.MaterialButton android:id="@+id/bOk" android:text="OK"
                     android:textSize="13sp" android:textStyle="bold" android:textColor="#0A0A0F"
@@ -169,13 +169,13 @@
                     android:layout_marginStart="10dp" android:layout_marginEnd="10dp"
                     android:layout_width="64dp" android:layout_height="48dp"/>
                 <com.google.android.material.button.MaterialButton android:id="@+id/bRight" android:text="▶"
-                    style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#262A3D" android:textColor="#5EE9A8"
+                    style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="@color/stroke" android:textColor="#5EE9A8"
                     app:cornerRadius="12dp" android:layout_width="64dp" android:layout_height="48dp"/>
             </LinearLayout>
             <LinearLayout android:orientation="horizontal" android:gravity="center" android:layout_marginTop="8dp"
                 android:layout_width="match_parent" android:layout_height="wrap_content">
                 <com.google.android.material.button.MaterialButton android:id="@+id/bDown" android:text="▼"
-                    style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="#262A3D" android:textColor="#5EE9A8"
+                    style="@style/Widget.Material3.Button.OutlinedButton" app:strokeColor="@color/stroke" android:textColor="#5EE9A8"
                     app:cornerRadius="12dp" android:layout_width="64dp" android:layout_height="48dp"/>
             </LinearLayout>
         </LinearLayout>
